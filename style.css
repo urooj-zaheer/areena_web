@@ -1,5 +1,8 @@
 
 
+/* =========================================
+   1. GLOBAL
+========================================= */
 
 * {
     margin: 0;
@@ -22,8 +25,12 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 /* =========================================
-   2. SIDEBAR MENU
+   2. SIDEBAR
 ========================================= */
 
 #menu-toggle {
@@ -34,31 +41,25 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 300px;
     max-width: 80vw;
     height: 100vh;
     height: 100dvh;
-
     overflow-y: auto;
     background: #222;
+    z-index: 1000;
 
     transform: translate3d(-100%, 0, 0);
-
-    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-
-    z-index: 1000;
+    transition: transform 0.5s ease-in-out;
     will-change: transform;
 }
 
 .sidebar a,
 .sidebar summary {
     display: block;
-    padding: 20px 28px;
-
+    padding: 18px 25px;
     color: #aaa;
-    font-size: 19px;
-
+    font-size: 18px;
     border-bottom: 1px solid #383838;
     cursor: pointer;
     list-style: none;
@@ -71,11 +72,11 @@ a {
 }
 
 .sidebar details a {
-    padding-left: 55px;
+    padding-left: 50px;
 }
 
 .sidebar details details a {
-    padding-left: 85px;
+    padding-left: 75px;
 }
 
 .sidebar details summary::after {
@@ -87,27 +88,23 @@ a {
     content: "-";
 }
 
-/* Sidebar open */
-
 #menu-toggle:checked ~ .sidebar {
     transform: translate3d(0, 0, 0);
 }
 
 /* =========================================
-   3. MAIN PAGE CONTENT
+   3. PAGE MOVEMENT
 ========================================= */
 
 .page-content {
     width: 100%;
     min-width: 0;
+    position: relative;
 
     transform: translate3d(0, 0, 0);
 
-    transition:
-        transform 0.45s cubic-bezier(0.77, 0, 0.175, 1),
-        width 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-
-    will-change: transform, width;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
 }
 
 /* =========================================
@@ -116,7 +113,6 @@ a {
 
 header {
     height: 85px;
-
     background: #292929;
     color: white;
 
@@ -126,21 +122,16 @@ header {
 
     position: sticky;
     top: 0;
-
     border-bottom: 6px solid #35b5df;
-
     z-index: 100;
 }
 
 .menu-btn {
     position: absolute;
     left: 30px;
-
     font-size: 28px;
     color: #aaa;
-
     cursor: pointer;
-    user-select: none;
 }
 
 .menu-btn:hover {
@@ -152,31 +143,17 @@ header {
     color: white;
 }
 
-.logo strong {
-    color: white;
-}
-
 /* =========================================
-   5. HERO SECTION
+   5. HERO
 ========================================= */
 
 .hero-image {
     height: 300px;
-
-    background: linear-gradient(
-        120deg,
-        #a5b99a,
-        #397c70
-    );
+    background: linear-gradient(120deg, #a5b99a, #397c70);
 }
 
 .hero-content {
-    background: linear-gradient(
-        120deg,
-        #1d302a,
-        #172b26
-    );
-
+    background: linear-gradient(120deg, #1d302a, #172b26);
     text-align: center;
     padding: 45px 6%;
 }
@@ -194,13 +171,10 @@ header {
 
 .blue-btn {
     display: block;
-
     background: #32b1df;
     color: white;
-
     padding: 16px;
     border-radius: 9px;
-
     font-size: 22px;
     font-weight: bold;
 }
@@ -210,34 +184,32 @@ header {
 }
 
 /* =========================================
-   6. FEATURES SECTION
+   6. FEATURES
 ========================================= */
 
 .features {
     padding: 70px 6%;
-
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 75px 40px;
+    gap: 65px 40px;
 }
 
 .feature {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 22px;
+    min-width: 0;
+}
 
+.feature > div:last-child {
     min-width: 0;
 }
 
 .icon {
     flex: 0 0 130px;
-
     width: 130px;
     height: 130px;
-
     border-radius: 50%;
-
     background: #32b1df;
     border: 12px solid #eee;
     outline: 2px solid #ddd;
@@ -259,12 +231,8 @@ header {
 
 .feature p,
 .content-item p {
-    font-size: 19px;
+    font-size: 18px;
     color: #888;
-}
-
-.feature > div:last-child {
-    min-width: 0;
 }
 
 /* =========================================
@@ -273,9 +241,7 @@ header {
 
 .main-heading {
     background: #f4f4f4;
-
     padding: 65px 10%;
-
     text-align: center;
 }
 
@@ -286,7 +252,6 @@ header {
 
 .main-heading hr {
     margin: 30px 0;
-
     border: none;
     border-top: 1px solid #ddd;
 }
@@ -297,54 +262,42 @@ header {
 }
 
 /* =========================================
-   8. CONTENT SECTION
+   8. CONTENT
 ========================================= */
 
 .content {
     padding: 65px 6%;
-
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 65px 40px;
+    gap: 60px 40px;
 }
 
 .content-item {
     display: flex;
     align-items: flex-start;
-    gap: 25px;
-
+    gap: 22px;
     min-width: 0;
-}
-
-.content-image {
-    flex: 0 0 180px;
-
-    width: 180px;
-    height: 180px;
-
-    border-radius: 9px;
-
-    background: linear-gradient(
-        135deg,
-        #78978c,
-        #244b43
-    );
 }
 
 .content-item > div:last-child {
     min-width: 0;
 }
 
+.content-image {
+    flex: 0 0 180px;
+    width: 180px;
+    height: 180px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #78978c, #244b43);
+}
+
 /* =========================================
-   9. BLUE CTA SECTION
+   9. CTA
 ========================================= */
 
 .cta {
     background: #32b1df;
-
     padding: 40px 6%;
-
     text-align: center;
     color: white;
 }
@@ -356,13 +309,10 @@ header {
 
 .cta a {
     display: block;
-
     background: white;
     color: #444;
-
     padding: 17px;
     border-radius: 9px;
-
     font-size: 22px;
     font-weight: bold;
 }
@@ -393,17 +343,14 @@ footer {
     display: block;
     width: fit-content;
     max-width: 100%;
-
     color: #888;
-    font-size: 19px;
-
+    font-size: 18px;
     padding: 12px 0;
-
     border-bottom: 1px dotted #bbb;
 }
 
 /* =========================================
-   11. CONTACT FORM
+   11. CONTACT
 ========================================= */
 
 .contact {
@@ -414,16 +361,12 @@ footer {
 .contact textarea {
     display: block;
     width: 100%;
-
     padding: 20px;
     margin-bottom: 20px;
-
     border: 1px solid #ddd;
     border-radius: 9px;
-
     font-size: 18px;
     font-family: inherit;
-
     outline: none;
 }
 
@@ -439,15 +382,11 @@ footer {
 
 .contact button {
     width: 100%;
-
     padding: 18px;
-
     background: #333;
     color: white;
-
     border: none;
     border-radius: 9px;
-
     font-size: 20px;
     cursor: pointer;
 }
@@ -458,26 +397,20 @@ footer {
 
 .social-icons {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     gap: 35px;
     margin-top: 90px;
-
     flex-wrap: wrap;
 }
 
 .social-icons a {
     width: 38px;
     height: 38px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     color: #999;
-
     transition: 0.3s;
 }
 
@@ -498,12 +431,9 @@ footer {
 
 .copyright {
     text-align: center;
-
     color: #999;
-
     margin-top: 35px;
     padding: 20px 0;
-
     font-size: 17px;
 }
 
@@ -512,20 +442,19 @@ footer {
 }
 
 /* =========================================
-   14. DESKTOP RESPONSIVE
+   14. DESKTOP
 ========================================= */
 
 @media (min-width: 769px) {
 
     #menu-toggle:checked ~ .page-content {
-        width: calc(100% - 300px);
         transform: translate3d(300px, 0, 0);
     }
 
 }
 
 /* =========================================
-   15. TABLET RESPONSIVE
+   15. TABLET
 ========================================= */
 
 @media (max-width: 768px) {
@@ -535,8 +464,7 @@ footer {
     }
 
     #menu-toggle:checked ~ .page-content {
-        width: 100%;
-        transform: translate3d(80vw, 0, 0);
+        transform: translate3d(min(320px, 80vw), 0, 0);
     }
 
     .features {
@@ -578,22 +506,13 @@ footer {
         width: 110px;
         height: 110px;
     }
-
 }
 
 /* =========================================
-   16. SMALL MOBILE RESPONSIVE
+   16. MOBILE
 ========================================= */
 
 @media (max-width: 450px) {
-
-    .sidebar {
-        width: 80vw;
-    }
-
-    #menu-toggle:checked ~ .page-content {
-        transform: translate3d(80vw, 0, 0);
-    }
 
     header {
         height: 75px;
@@ -667,21 +586,21 @@ footer {
     footer {
         padding: 45px 5%;
     }
-
 }
 
-
+/* =========================================
+   17. ACCESSIBILITY
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
     .sidebar,
     .page-content {
-        transition-duration: 0.01ms;
+        transition: none;
     }
 
     html {
         scroll-behavior: auto;
     }
-
 }
 
