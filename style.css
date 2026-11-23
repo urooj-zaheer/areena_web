@@ -1,8 +1,6 @@
 
 
-/* =========================================
-   1. GLOBAL
-========================================= */
+
 
 * {
     margin: 0;
@@ -29,9 +27,7 @@ img {
     max-width: 100%;
 }
 
-/* =========================================
-   2. SIDEBAR
-========================================= */
+
 
 #menu-toggle {
     display: none;
@@ -508,9 +504,7 @@ footer {
     }
 }
 
-/* =========================================
-   16. MOBILE
-========================================= */
+
 
 @media (max-width: 450px) {
 
@@ -588,9 +582,6 @@ footer {
     }
 }
 
-/* =========================================
-   17. ACCESSIBILITY
-========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -603,4 +594,37 @@ footer {
         scroll-behavior: auto;
     }
 }
+
+/* Screenshot Style Sidebar */
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 76vw;
+        max-width: 76vw;
+        background: #1e1e1e;
+    }
+
+    #menu-toggle:checked ~ .sidebar {
+        transform: translate3d(0, 0, 0);
+    }
+
+    #menu-toggle:checked ~ .page-content {
+        transform: translate3d(76vw, 0, 0);
+    }
+
+    .sidebar a,
+    .sidebar summary {
+        padding: 23px 30px;
+        font-size: 18px;
+    }
+
+    .sidebar details a {
+        padding-left: 60px;
+    }
+
+    .sidebar details details a {
+        padding-left: 90px;
+    }
+}
+
 
