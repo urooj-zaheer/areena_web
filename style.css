@@ -1,7 +1,5 @@
-/* =====================================
-   1. GENERAL STYLING
-===================================== */
 
+/* GENERAL */
 * {
     margin: 0;
     padding: 0;
@@ -23,12 +21,7 @@ a {
     text-decoration: none;
 }
 
-
-/* =====================================
-   2. SIDEBAR NAVBAR
-===================================== */
-/* SIDEBAR MENU */
-
+/* MENU */
 #menu-toggle {
     display: none;
 }
@@ -38,31 +31,32 @@ a {
     top: 0;
     left: 0;
     width: 300px;
+    max-width: 80vw;
     height: 100vh;
     overflow-y: auto;
     background: #222;
     transform: translateX(-100%);
-    transition: transform 0.4s ease;
+    transition: transform .4s ease;
     z-index: 1000;
 }
 
 .sidebar a,
 .sidebar summary {
     display: block;
-    padding: 20px 28px;
+    padding: 16px 25px;
     color: #aaa;
-    font-size: 19px;
+    font-size: 17px;
     border-bottom: 1px solid #383838;
     cursor: pointer;
     list-style: none;
 }
 
 .sidebar details a {
-    padding-left: 55px;
+    padding-left: 45px;
 }
 
 .sidebar details details a {
-    padding-left: 85px;
+    padding-left: 65px;
 }
 
 .sidebar details summary::after {
@@ -78,9 +72,7 @@ a {
     transform: translateX(0);
 }
 
-
 /* HEADER */
-
 header {
     height: 85px;
     background: #292929;
@@ -104,130 +96,32 @@ header {
 
 .logo {
     font-size: 23px;
+    color: white;
 }
 
-
-/* MAIN CONTENT */
-
+/* MAIN */
 .page-content {
     width: 100%;
-    transition: margin-left 0.4s ease,
-                width 0.4s ease;
+    min-width: 0;
+    transition: margin-left .4s ease, width .4s ease;
 }
 
-
-/* DESKTOP RESPONSIVE */
-
+/* DESKTOP SIDEBAR */
 @media (min-width: 769px) {
-
     #menu-toggle:checked ~ .page-content {
         margin-left: 300px;
         width: calc(100% - 300px);
     }
-
 }
 
-
-/* MOBILE RESPONSIVE */
-
-@media (max-width: 768px) {
-
-    .sidebar {
-        width: 76vw;
-    }
-
-    #menu-toggle:checked ~ .page-content {
-        margin-left: 76vw;
-        width: 24vw;
-    }
-
-    .menu-btn {
-        left: 18px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-}
-
-/* =====================================
-   3. MAIN PAGE CONTENT
-===================================== */
-
-.page-content {
-    width: 100%;
-    transition: margin-left 0.4s ease,
-                width 0.4s ease;
-}
-
-
-/* =====================================
-   4. HEADER / NAVBAR
-===================================== */
-
-header {
-    height: 85px;
-    background: #292929;
-    color: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: sticky;
-    top: 0;
-
-    border-bottom: 6px solid #35b5df;
-
-    z-index: 100;
-}
-
-/* Hamburger Icon */
-
-.menu-btn {
-    position: absolute;
-    left: 30px;
-
-    font-size: 28px;
-    color: #aaa;
-
-    cursor: pointer;
-}
-
-/* Logo */
-
-.logo {
-    font-size: 23px;
-    color: white;
-}
-
-.logo strong {
-    color: white;
-}
-
-
-/* =====================================
-   5. HERO SECTION
-===================================== */
-
+/* HERO */
 .hero-image {
     height: 300px;
-
-    background: linear-gradient(
-        120deg,
-        #a5b99a,
-        #397c70
-    );
+    background: linear-gradient(120deg, #a5b99a, #397c70);
 }
 
 .hero-content {
-    background: linear-gradient(
-        120deg,
-        #1d302a,
-        #172b26
-    );
-
+    background: linear-gradient(120deg, #1d302a, #172b26);
     text-align: center;
     padding: 45px 6%;
 }
@@ -243,62 +137,48 @@ header {
     font-weight: normal;
 }
 
-/* Learn More Button */
-
 .blue-btn {
     display: block;
     background: #32b1df;
     color: white;
-
     padding: 16px;
     border-radius: 9px;
-
     font-size: 22px;
     font-weight: bold;
 }
 
-.blue-btn:hover {
-    background: #2699c3;
-}
-
-
-/* =====================================
-   6. FEATURES SECTION
-===================================== */
-
+/* FEATURES */
 .features {
     padding: 70px 6%;
-
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 75px 40px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 50px 40px;
 }
 
 .feature {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
+    min-width: 0;
 }
 
-/* Feature Circle Icons */
-
 .icon {
-    min-width: 130px;
-    height: 130px;
-
+    flex: 0 0 110px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-
     background: #32b1df;
     border: 12px solid #eee;
     outline: 2px solid #ddd;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
-    font-size: 40px;
+    font-size: 35px;
+}
+
+.feature > div:last-child {
+    min-width: 0;
 }
 
 .feature h2,
@@ -310,20 +190,14 @@ header {
 
 .feature p,
 .content-item p {
-    font-size: 19px;
+    font-size: 17px;
     color: #888;
 }
 
-
-/* =====================================
-   7. MAIN HEADING SECTION
-===================================== */
-
+/* MAIN HEADING */
 .main-heading {
     background: #f4f4f4;
-
     padding: 65px 10%;
-
     text-align: center;
 }
 
@@ -334,7 +208,6 @@ header {
 
 .main-heading hr {
     margin: 30px 0;
-
     border: none;
     border-top: 1px solid #ddd;
 }
@@ -344,51 +217,37 @@ header {
     color: #999;
 }
 
-
-/* =====================================
-   8. CONTENT SECTION
-===================================== */
-
+/* CONTENT */
 .content {
     padding: 65px 6%;
-
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 65px 40px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 50px 40px;
 }
 
 .content-item {
     display: flex;
     align-items: flex-start;
-    gap: 25px;
+    gap: 20px;
+    min-width: 0;
 }
-
-/* Content Images */
 
 .content-image {
-    min-width: 180px;
-    height: 180px;
-
+    flex: 0 0 150px;
+    width: 150px;
+    height: 150px;
     border-radius: 9px;
-
-    background: linear-gradient(
-        135deg,
-        #78978c,
-        #244b43
-    );
+    background: linear-gradient(135deg, #78978c, #244b43);
 }
 
+.content-item > div:last-child {
+    min-width: 0;
+}
 
-/* =====================================
-   9. BLUE CTA SECTION
-===================================== */
-
+/* CTA */
 .cta {
     background: #32b1df;
-
     padding: 40px 6%;
-
     text-align: center;
     color: white;
 }
@@ -400,32 +259,23 @@ header {
 
 .cta a {
     display: block;
-
     background: white;
     color: #444;
-
     padding: 17px;
     border-radius: 9px;
-
     font-size: 22px;
     font-weight: bold;
 }
 
-
-/* =====================================
-   10. FOOTER
-===================================== */
-
+/* FOOTER */
 footer {
     background: #f4f4f4;
     padding: 60px 6%;
 }
 
-/* Footer Links */
-
 .footer-links {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 50px;
 }
 
@@ -438,45 +288,29 @@ footer {
 
 .footer-links a {
     display: block;
-
     width: fit-content;
-
+    max-width: 100%;
     color: #888;
-    font-size: 19px;
-
+    font-size: 17px;
     padding: 12px 0;
-
     border-bottom: 1px dotted #bbb;
 }
 
-
-/* =====================================
-   11. CONTACT FORM
-===================================== */
-
+/* CONTACT */
 .contact {
     margin-top: 60px;
 }
 
 .contact input,
 .contact textarea {
+    display: block;
     width: 100%;
-
-    padding: 20px;
+    padding: 18px;
     margin-bottom: 20px;
-
     border: 1px solid #ddd;
     border-radius: 9px;
-
-    font-size: 18px;
+    font-size: 17px;
     font-family: inherit;
-
-    outline: none;
-}
-
-.contact input:focus,
-.contact textarea:focus {
-    border-color: #32b1df;
 }
 
 .contact textarea {
@@ -486,47 +320,32 @@ footer {
 
 .contact button {
     width: 100%;
-
     padding: 18px;
-
     background: #333;
     color: white;
-
     border: none;
     border-radius: 9px;
-
     font-size: 20px;
     cursor: pointer;
 }
 
-
-/* =====================================
-   12. SOCIAL MEDIA ICONS
-===================================== */
-
+/* SOCIAL */
 .social-icons {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
-    gap: 35px;
-    margin-top: 90px;
-
+    gap: 30px;
+    margin-top: 70px;
     flex-wrap: wrap;
 }
 
 .social-icons a {
     width: 38px;
     height: 38px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     color: #999;
-
-    transition: 0.3s;
 }
 
 .social-icons svg {
@@ -535,80 +354,36 @@ footer {
     fill: currentColor;
 }
 
-.social-icons a:hover {
-    color: #32b1df;
-    transform: translateY(-4px);
-}
-
-
-/* =====================================
-   13. COPYRIGHT
-===================================== */
-
+/* COPYRIGHT */
 .copyright {
     text-align: center;
-
     color: #999;
-
     margin-top: 35px;
     padding: 20px 0;
-
-    font-size: 17px;
+    font-size: 15px;
 }
 
-.copyright p {
-    margin-bottom: 12px;
-}
-
-
-/* =====================================
-   14. DESKTOP NAVBAR RESPONSIVE
-===================================== */
-
-
-@media (min-width: 769px) {
-
-    #menu-toggle:checked ~ .page-content {
-        margin-left: 300px;
-        width: calc(100% - 300px);
-    }
-
-}
-
-
-/* =====================================
-   15. TABLET RESPONSIVE
-===================================== */
-
+/* TABLET */
 @media (max-width: 768px) {
 
-    .features {
-        grid-template-columns: 1fr;
+    /* Sidebar overlays page, never squeezes it */
+    #menu-toggle:checked ~ .page-content {
+        margin-left: 0;
+        width: 100%;
     }
 
-    .content {
-        grid-template-columns: 1fr;
+    .sidebar {
+        width: min(320px, 80vw);
     }
 
+    .features,
+    .content,
     .footer-links {
         grid-template-columns: 1fr;
     }
 
-    .sidebar {
-        width: 76vw;
-    }
-
-    #menu-toggle:checked ~ .page-content {
-        margin-left: 76vw;
-        width: 24vw;
-    }
-
-    .menu-btn {
-        left: 18px;
-    }
-
-    .logo {
-        font-size: 19px;
+    .hero-image {
+        height: 240px;
     }
 
     .hero-content h1 {
@@ -619,185 +394,45 @@ footer {
         font-size: 26px;
     }
 
-    .icon {
-        min-width: 110px;
-        height: 110px;
-    }
-
-}
-
-
-/* =====================================
-   16. MOBILE RESPONSIVE
-===================================== */
-
-@media (max-width: 450px) {
-
-    .logo {
-        font-size: 19px;
-    }
-
     .menu-btn {
         left: 18px;
     }
 
-    .feature {
-        gap: 20px;
+    .logo {
+        font-size: 19px;
     }
-
-    .icon {
-        min-width: 100px;
-        height: 100px;
-        font-size: 30px;
-    }
-
-    .feature p,
-    .content-item p {
-        font-size: 17px;
-    }
-
-    .content-item {
-        gap: 20px;
-    }
-
-    .content-image {
-        min-width: 30%;
-        height: 130px;
-    }
-
-    .social-icons {
-        gap: 25px;
-    }
-
-    .hero-content {
-        padding: 40px 6%;
-    }
-
-    .cta h2 {
-        font-size: 23px;
-    }
-
 }
 
+/* MOBILE */
+@media (max-width: 450px) {
 
-@media (max-width: 768px) {
-
-    /* Sidebar overlay */
-    .sidebar {
-        width: min(320px, 80vw);
-        height: 100dvh;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-    }
-
-    /* IMPORTANT: Do not squeeze main website */
-    #menu-toggle:checked ~ .page-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-
-    .page-content {
-        width: 100%;
-        min-width: 0;
-    }
-
-    /* Header */
     header {
-        width: 100%;
         height: 75px;
     }
 
-    .menu-btn {
-        left: 18px;
-    }
-
     .logo {
-        font-size: 19px;
+        font-size: 17px;
     }
 
-    /* Hero */
-    .hero-image {
-        height: 250px;
-    }
-
-    .hero-content {
-        padding: 40px 6%;
-    }
-
-    .hero-content h1 {
-        font-size: 25px;
-    }
-
-    /* Features */
-    .features {
-        grid-template-columns: 1fr;
-        gap: 45px;
+    .features,
+    .content {
+        padding: 40px 5%;
     }
 
     .feature {
-        gap: 20px;
-        min-width: 0;
-    }
-
-    .feature > div:last-child {
-        flex: 1;
-        min-width: 0;
+        gap: 15px;
     }
 
     .icon {
-        min-width: 90px;
-        width: 90px;
-        height: 90px;
-        font-size: 30px;
+        flex-basis: 85px;
+        width: 85px;
+        height: 85px;
+        font-size: 27px;
     }
 
-    /* Main heading */
-    .main-heading h1 {
-        font-size: 26px;
-    }
-
-    /* Content */
-    .content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .content-item {
-        gap: 18px;
-        min-width: 0;
-    }
-
-    .content-image {
-        min-width: 30%;
-        width: 30%;
-        height: 130px;
-        flex-shrink: 0;
-    }
-
-    .content-item > div:last-child {
-        flex: 1;
-        min-width: 0;
-    }
-
-    /* Footer */
-    .footer-links {
-        grid-template-columns: 1fr;
-    }
-
-    /* Contact */
-    .contact input,
-    .contact textarea {
-        width: 100%;
-    }
-}
-
-/* Small mobile screens */
-
-@media (max-width: 450px) {
-
-    .logo {
-        font-size: 17px;
+    .feature h2,
+    .content-item h2 {
+        font-size: 19px;
     }
 
     .feature p,
@@ -805,9 +440,30 @@ footer {
         font-size: 15px;
     }
 
+    .content-image {
+        flex-basis: 30%;
+        width: 30%;
+        height: 120px;
+    }
+
+    .main-heading {
+        padding: 45px 6%;
+    }
+
+    .main-heading h1 {
+        font-size: 23px;
+    }
+
+    .main-heading p {
+        font-size: 17px;
+    }
+
     .cta h2 {
         font-size: 22px;
     }
 
+    footer {
+        padding: 40px 5%;
+    }
 }
 
