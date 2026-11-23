@@ -1,6 +1,7 @@
 
-
-
+/* =========================================
+   1. GLOBAL RESET
+========================================= */
 
 * {
     margin: 0;
@@ -27,7 +28,9 @@ img {
     max-width: 100%;
 }
 
-
+/* =========================================
+   2. MENU & SIDEBAR
+========================================= */
 
 #menu-toggle {
     display: none;
@@ -47,7 +50,6 @@ img {
 
     transform: translate3d(-100%, 0, 0);
     transition: transform 0.5s ease-in-out;
-    will-change: transform;
 }
 
 .sidebar a,
@@ -89,18 +91,15 @@ img {
 }
 
 /* =========================================
-   3. PAGE MOVEMENT
+   3. PAGE CONTENT
 ========================================= */
 
 .page-content {
     width: 100%;
     min-width: 0;
     position: relative;
-
     transform: translate3d(0, 0, 0);
-
     transition: transform 0.5s ease-in-out;
-    will-change: transform;
 }
 
 /* =========================================
@@ -108,7 +107,7 @@ img {
 ========================================= */
 
 header {
-    height: 85px;
+    height: 105px;
     background: #292929;
     color: white;
 
@@ -124,7 +123,7 @@ header {
 
 .menu-btn {
     position: absolute;
-    left: 30px;
+    left: 40px;
     font-size: 28px;
     color: #aaa;
     cursor: pointer;
@@ -135,29 +134,31 @@ header {
 }
 
 .logo {
-    font-size: 23px;
+    font-size: 28px;
     color: white;
 }
 
 /* =========================================
-   5. HERO
+   5. HERO SECTION
 ========================================= */
 
 .hero-image {
-    height: 300px;
+    width: 100%;
+    height: 375px;
     background: linear-gradient(120deg, #a5b99a, #397c70);
 }
 
 .hero-content {
+    width: 100%;
     background: linear-gradient(120deg, #1d302a, #172b26);
     text-align: center;
-    padding: 45px 6%;
+    padding: 55px 6%;
 }
 
 .hero-content h1 {
     color: white;
-    font-size: 30px;
-    margin-bottom: 30px;
+    font-size: 36px;
+    margin-bottom: 35px;
 }
 
 .hero-content h1 span {
@@ -167,12 +168,16 @@ header {
 
 .blue-btn {
     display: block;
+    width: 100%;
     background: #32b1df;
     color: white;
-    padding: 16px;
+    padding: 20px;
     border-radius: 9px;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
+    text-align: center;
+    visibility: visible;
+    opacity: 1;
 }
 
 .blue-btn:hover {
@@ -180,11 +185,11 @@ header {
 }
 
 /* =========================================
-   6. FEATURES
+   6. FEATURES SECTION
 ========================================= */
 
 .features {
-    padding: 70px 6%;
+    padding: 80px 6%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 65px 40px;
@@ -227,7 +232,7 @@ header {
 
 .feature p,
 .content-item p {
-    font-size: 18px;
+    font-size: 17px;
     color: #888;
 }
 
@@ -237,12 +242,12 @@ header {
 
 .main-heading {
     background: #f4f4f4;
-    padding: 65px 10%;
+    padding: 75px 10%;
     text-align: center;
 }
 
 .main-heading h1 {
-    font-size: 32px;
+    font-size: 35px;
     color: #444;
 }
 
@@ -253,16 +258,16 @@ header {
 }
 
 .main-heading p {
-    font-size: 22px;
+    font-size: 21px;
     color: #999;
 }
 
 /* =========================================
-   8. CONTENT
+   8. CONTENT SECTION
 ========================================= */
 
 .content {
-    padding: 65px 6%;
+    padding: 70px 6%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 60px 40px;
@@ -288,12 +293,12 @@ header {
 }
 
 /* =========================================
-   9. CTA
+   9. CTA SECTION
 ========================================= */
 
 .cta {
     background: #32b1df;
-    padding: 40px 6%;
+    padding: 45px 6%;
     text-align: center;
     color: white;
 }
@@ -305,12 +310,17 @@ header {
 
 .cta a {
     display: block;
+    width: 100%;
     background: white;
     color: #444;
-    padding: 17px;
+    padding: 18px;
     border-radius: 9px;
     font-size: 22px;
     font-weight: bold;
+}
+
+.cta a:hover {
+    background: #eee;
 }
 
 /* =========================================
@@ -319,7 +329,7 @@ header {
 
 footer {
     background: #f4f4f4;
-    padding: 60px 6%;
+    padding: 65px 6%;
 }
 
 .footer-links {
@@ -346,7 +356,7 @@ footer {
 }
 
 /* =========================================
-   11. CONTACT
+   11. CONTACT FORM
 ========================================= */
 
 .contact {
@@ -441,171 +451,76 @@ footer {
    14. DESKTOP
 ========================================= */
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
 
     #menu-toggle:checked ~ .page-content {
         transform: translate3d(300px, 0, 0);
     }
 
+    .hero-image {
+        height: 375px;
+    }
+
+    .hero-content {
+        padding: 55px 6%;
+    }
+
+    .blue-btn {
+        display: block;
+        width: 100%;
+    }
 }
 
 /* =========================================
    15. TABLET
 ========================================= */
 
-@media (max-width: 768px) {
-
-    .sidebar {
-        width: min(320px, 80vw);
-    }
-
-    #menu-toggle:checked ~ .page-content {
-        transform: translate3d(min(320px, 80vw), 0, 0);
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
-
-    .content {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
-
-    .footer-links {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-btn {
-        left: 18px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    .hero-image {
-        height: 250px;
-    }
-
-    .hero-content h1 {
-        font-size: 25px;
-    }
-
-    .main-heading h1 {
-        font-size: 26px;
-    }
-
-    .icon {
-        flex-basis: 110px;
-        width: 110px;
-        height: 110px;
-    }
-}
-
-
-
-@media (max-width: 450px) {
+@media (max-width: 1024px) {
 
     header {
-        height: 75px;
+        height: 85px;
     }
 
     .logo {
-        font-size: 17px;
-    }
-
-    .menu-btn {
-        left: 15px;
-        font-size: 25px;
-    }
-
-    .features,
-    .content {
-        padding: 45px 5%;
-    }
-
-    .feature {
-        gap: 15px;
-    }
-
-    .icon {
-        flex-basis: 85px;
-        width: 85px;
-        height: 85px;
-        font-size: 28px;
-    }
-
-    .feature h2,
-    .content-item h2 {
-        font-size: 19px;
-    }
-
-    .feature p,
-    .content-item p {
-        font-size: 15px;
-    }
-
-    .content-item {
-        gap: 15px;
-    }
-
-    .content-image {
-        flex-basis: 30%;
-        width: 30%;
-        height: 125px;
-    }
-
-    .main-heading {
-        padding: 45px 6%;
-    }
-
-    .main-heading h1 {
         font-size: 23px;
     }
 
-    .main-heading p {
-        font-size: 17px;
+    .hero-image {
+        height: 300px;
     }
 
-    .cta h2 {
-        font-size: 22px;
+    .hero-content h1 {
+        font-size: 28px;
     }
 
-    .social-icons {
-        gap: 25px;
+    .features {
+        gap: 45px 25px;
     }
 
-    footer {
-        padding: 45px 5%;
-    }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-
-    .sidebar,
-    .page-content {
-        transition: none;
+    .icon {
+        flex-basis: 100px;
+        width: 100px;
+        height: 100px;
+        font-size: 32px;
     }
 
-    html {
-        scroll-behavior: auto;
+    .content-image {
+        flex-basis: 130px;
+        width: 130px;
+        height: 130px;
     }
 }
 
-/* Screenshot Style Sidebar */
+/* =========================================
+   16. MOBILE
+========================================= */
+
 @media (max-width: 768px) {
 
     .sidebar {
         width: 76vw;
         max-width: 76vw;
         background: #1e1e1e;
-    }
-
-    #menu-toggle:checked ~ .sidebar {
-        transform: translate3d(0, 0, 0);
     }
 
     #menu-toggle:checked ~ .page-content {
@@ -625,15 +540,167 @@ footer {
     .sidebar details details a {
         padding-left: 90px;
     }
-}
-@media screen and (min-width: 768px) {
-    .button,
-    .btn {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+
+    header {
+        height: 75px;
+    }
+
+    .menu-btn {
+        left: 15px;
+        font-size: 25px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .hero-content {
+        padding: 40px 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 23px;
+    }
+
+    .blue-btn {
+        display: block;
+        width: 100%;
+        font-size: 19px;
+        padding: 17px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        padding: 45px 5%;
+        gap: 40px;
+    }
+
+    .feature {
+        gap: 15px;
+    }
+
+    .icon {
+        flex-basis: 85px;
+        width: 85px;
+        height: 85px;
+        font-size: 28px;
+        border-width: 8px;
+    }
+
+    .feature h2,
+    .content-item h2 {
+        font-size: 19px;
+    }
+
+    .feature p,
+    .content-item p {
+        font-size: 15px;
+    }
+
+    .main-heading {
+        padding: 45px 6%;
+    }
+
+    .main-heading h1 {
+        font-size: 25px;
+    }
+
+    .main-heading p {
+        font-size: 17px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        padding: 45px 5%;
+        gap: 40px;
+    }
+
+    .content-item {
+        gap: 15px;
+    }
+
+    .content-image {
+        flex-basis: 30%;
+        width: 30%;
+        height: 125px;
+    }
+
+    .cta {
+        padding: 35px 5%;
+    }
+
+    .cta h2 {
+        font-size: 22px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    footer {
+        padding: 45px 5%;
+    }
+
+    .social-icons {
+        gap: 25px;
+    }
+
+    .contact {
+        margin-top: 40px;
     }
 }
 
+/* =========================================
+   17. SMALL MOBILE
+========================================= */
 
+@media (max-width: 450px) {
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .hero-image {
+        height: 210px;
+    }
+
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+    .main-heading h1 {
+        font-size: 22px;
+    }
+
+    .content-image {
+        flex-basis: 30%;
+        width: 30%;
+        height: 110px;
+    }
+
+    .social-icons {
+        gap: 20px;
+    }
+}
+
+/* =========================================
+   18. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sidebar,
+    .page-content {
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
 
